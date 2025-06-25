@@ -1197,6 +1197,14 @@ body {
   font-size: 14px;
 }
 
+.scanner-camera-info {
+  text-align: center;
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  color: var(--tg-theme-button-color);
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .empty-state {
   text-align: center;
   padding: var(--spacing-xl);

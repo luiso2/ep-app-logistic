@@ -7,20 +7,35 @@ interface ScannerProps {
   onClose: () => void;
 }
 
+// Function to detect if device is mobile
+const isMobileDevice = (): boolean => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+         (typeof navigator.maxTouchPoints === 'number' && navigator.maxTouchPoints > 2);
+};
+
 export const Scanner: React.FC<ScannerProps> = ({ onScan, onClose }) => {
   const scannerRef = useRef<Html5QrcodeScanner | null>(null);
   const [isScanning, setIsScanning] = useState(true);
+  const [deviceType, setDeviceType] = useState<'mobile' | 'desktop'>('desktop');
 
   useEffect(() => {
     if (!scannerRef.current && isScanning) {
+      // Determine camera facing mode based on device type
+      const isMobile = isMobileDevice();
+      setDeviceType(isMobile ? 'mobile' : 'desktop');
+      
+      const cameraConfig = {
+        fps: 10,
+        qrbox: { width: 250, height: 250 },
+        aspectRatio: 1.0,
+        showTorchButtonIfSupported: true,
+        // Use back camera for mobile devices, front camera for desktop
+        facingMode: isMobile ? "environment" : "user"
+      };
+
       const scanner = new Html5QrcodeScanner(
         'qr-reader',
-        {
-          fps: 10,
-          qrbox: { width: 250, height: 250 },
-          aspectRatio: 1.0,
-          showTorchButtonIfSupported: true
-        },
+        cameraConfig,
         false
       );
 
@@ -57,6 +72,11 @@ export const Scanner: React.FC<ScannerProps> = ({ onScan, onClose }) => {
         <div id="qr-reader" />
         <p className="scanner-hint">
           Coloca el código QR o de barras dentro del recuadro
+        </p>
+        <p className="scanner-camera-info">
+          {deviceType === 'mobile' 
+            ? '📱 Usando cámara trasera' 
+            : '💻 Usando cámara frontal'}
         </p>
       </div>
     </div>
