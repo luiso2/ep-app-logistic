@@ -1,95 +1,113 @@
-# Instrucciones de Despliegue
+# Instrucciones de Despliegue - EP App Logistic
 
-## Opción 1: Usando el script (Recomendado)
+## 🚀 Despliegue Automático en GitHub Pages
 
-```bash
-./push-to-github.sh
-```
+Esta aplicación se despliega automáticamente en GitHub Pages cuando haces push a la rama `main`.
 
-## Opción 2: Manualmente
+### URL de la aplicación
+- **Producción**: https://luiso2.github.io/ep-app-logistic/
 
-### 1. Crear Personal Access Token en GitHub
+## 📋 Requisitos Previos
 
-1. Ve a: https://github.com/settings/tokens/new
-2. Configura:
-   - **Note**: ep-app-logistic-deploy
-   - **Expiration**: 30 days (o lo que prefieras)
-   - **Scopes**: Selecciona `repo` (todos los checkbox bajo repo)
-3. Click en "Generate token"
-4. **IMPORTANTE**: Copia el token ahora (no lo podrás ver después)
+1. Node.js 18 o superior
+2. npm instalado
+3. Acceso de escritura al repositorio
 
-### 2. Subir el código
+## 🔧 Configuración Local
 
-```bash
-# En la terminal, desde el directorio del proyecto:
-cd /home/luiso/telegram-app-almacen
-
-# Configurar git (si no lo has hecho)
-git config user.name "tu-usuario"
-git config user.email "tu-email@example.com"
-
-# Push (te pedirá credenciales)
-git push -u origin main
-
-# Cuando te pida:
-# Username: luiso2
-# Password: [pega tu Personal Access Token aquí]
-```
-
-### 3. Configurar GitHub Pages
-
-1. Ve a: https://github.com/luiso2/ep-app-logistic/settings/pages
-2. En **Source**, selecciona: `GitHub Actions`
-3. Guarda los cambios
-
-### 4. Esperar el despliegue
-
-1. Ve a: https://github.com/luiso2/ep-app-logistic/actions
-2. Verás el workflow ejecutándose
-3. Cuando termine (✅), tu app estará en: https://luiso2.github.io/ep-app-logistic/
-
-## Configurar en Telegram
-
-1. Habla con [@BotFather](https://t.me/botfather)
-2. Crea un nuevo bot: `/newbot`
-3. Configura el botón del menú:
-   ```
-   /setmenubutton
-   [selecciona tu bot]
-   Esencial Pack Almacén
-   https://luiso2.github.io/ep-app-logistic/
+1. Instalar dependencias:
+   ```bash
+   npm install
    ```
 
-## Solución de Problemas
+2. Ejecutar en desarrollo:
+   ```bash
+   npm run dev
+   ```
 
-### Error de autenticación
-- Asegúrate de usar el Personal Access Token como contraseña, NO tu contraseña de GitHub
-- El token debe tener permisos de `repo`
+3. Verificar el build localmente:
+   ```bash
+   npm run build
+   npm run preview
+   ```
 
-### La página no se ve
-- Espera 5-10 minutos después del primer despliegue
-- Verifica que GitHub Actions haya terminado exitosamente
-- Revisa la configuración de Pages en Settings
+## 📦 Proceso de Despliegue
 
-### Cambios no se reflejan
-- GitHub Pages puede tardar unos minutos en actualizar
-- Intenta limpiar el caché del navegador (Ctrl+F5)
+### Despliegue Automático (Recomendado)
 
-## Desarrollo Local
+1. Haz tus cambios en el código
+2. Verifica que el build funcione:
+   ```bash
+   npm run build
+   ```
+3. Haz commit y push:
+   ```bash
+   git add .
+   git commit -m "descripción de tus cambios"
+   git push origin main
+   ```
+4. GitHub Actions se encargará automáticamente de:
+   - Instalar dependencias
+   - Construir la aplicación
+   - Desplegar en GitHub Pages
 
-```bash
-# Instalar dependencias
-npm install
+### Verificación del Despliegue
 
-# Ejecutar en modo desarrollo
-npm run dev
+1. Ve a la pestaña **Actions** en GitHub
+2. Verifica que el workflow "Deploy to GitHub Pages" se completó exitosamente
+3. Espera 2-3 minutos para que los cambios se propaguen
+4. Visita https://luiso2.github.io/ep-app-logistic/
 
-# Build para producción
-npm run build
+## 🐛 Solución de Problemas
+
+### Error: "Failed to load module script"
+- **Causa**: Se está intentando cargar archivos TypeScript (.tsx) directamente
+- **Solución**: Asegúrate de que el build se ejecutó correctamente y que estás usando la versión compilada
+
+### La página no se actualiza
+- **Solución**: 
+  1. Limpia la caché del navegador (Ctrl+F5)
+  2. Espera 5-10 minutos para que GitHub Pages actualice
+  3. Verifica en la pestaña Actions que el deploy fue exitoso
+
+### Error 404 en rutas
+- **Causa**: GitHub Pages no maneja bien las SPAs
+- **Solución**: Ya está configurado el archivo 404.html para manejar esto
+
+## 📁 Estructura del Proyecto
+
+```
+ep-app-logistic/
+├── src/              # Código fuente TypeScript/React
+├── public/           # Archivos estáticos
+│   ├── 404.html     # Manejo de rutas SPA
+│   └── .nojekyll    # Desactiva Jekyll en GitHub Pages
+├── dist/            # Archivos compilados (generado)
+├── index.html       # HTML principal
+├── vite.config.ts   # Configuración de Vite
+└── package.json     # Dependencias y scripts
 ```
 
-## Soporte
+## ⚙️ Configuración Importante
 
-Si tienes problemas, revisa:
-- https://github.com/luiso2/ep-app-logistic/actions (logs de despliegue)
-- https://github.com/luiso2/ep-app-logistic/settings/pages (configuración)
+### vite.config.ts
+- `base: '/ep-app-logistic/'` - Configura la ruta base para GitHub Pages
+- `build.outDir: 'dist'` - Directorio de salida del build
+
+### GitHub Actions (.github/workflows/deploy.yml)
+- Se ejecuta automáticamente en push a `main`
+- Construye y despliega la aplicación
+- Configura los headers MIME correctos
+
+## 🔐 Seguridad
+
+- No incluyas claves API o secretos en el código
+- Usa variables de entorno para configuración sensible
+- El repositorio debe ser público para usar GitHub Pages gratis
+
+## 📞 Soporte
+
+Si encuentras problemas:
+1. Revisa la consola del navegador para errores
+2. Verifica los logs en GitHub Actions
+3. Asegúrate de que el build local funciona: `npm run build && npm run preview`
