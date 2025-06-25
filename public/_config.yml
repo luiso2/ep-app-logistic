@@ -1,0 +1,13 @@
+include:
+  - "_*_.html"
+  - "_*_.js"
+  - "_*_.css"
+
+plugins:
+  - jekyll-include-cache
+
+defaults:
+  - scope:
+      path: "assets"
+    values:
+      sitemap: false 
