@@ -22,10 +22,10 @@ export const demoUsers: User[] = [
 export const demoOrders: Order[] = [
   {
     id: 1,
-    orderCode: 'EP-2024-001',
+    orderCode: 'EP-2025-001',
     status: 'processing',
-    createdAt: '2024-01-15T10:30:00Z',
-    updatedAt: '2024-01-15T14:45:00Z',
+    createdAt: '2025-01-15T10:30:00Z',
+    updatedAt: '2025-01-15T14:45:00Z',
     customer: {
       id: '1',
       name: 'Roberto Martínez',
@@ -67,18 +67,18 @@ export const demoOrders: Order[] = [
         status: 'open',
         priority: 'high',
         description: 'El cliente reporta que no ha recibido el pedido en la fecha estimada',
-        createdAt: '2024-01-16T09:00:00Z',
-        updatedAt: '2024-01-16T09:00:00Z',
+        createdAt: '2025-01-16T09:00:00Z',
+        updatedAt: '2025-01-16T09:00:00Z',
         createdBy: '2'
       }
     ]
   },
   {
     id: 2,
-    orderCode: 'EP-2024-002',
+    orderCode: 'EP-2025-002',
     status: 'shipped',
-    createdAt: '2024-01-14T08:00:00Z',
-    updatedAt: '2024-01-16T11:00:00Z',
+    createdAt: '2025-01-14T08:00:00Z',
+    updatedAt: '2025-01-16T11:00:00Z',
     customer: {
       id: '2',
       name: 'Elena Rodríguez',
@@ -108,10 +108,10 @@ export const demoOrders: Order[] = [
   },
   {
     id: 3,
-    orderCode: 'EP-2024-003',
+    orderCode: 'EP-2025-003',
     status: 'delivered',
-    createdAt: '2024-01-10T14:30:00Z',
-    updatedAt: '2024-01-13T16:00:00Z',
+    createdAt: '2025-01-10T14:30:00Z',
+    updatedAt: '2025-01-13T16:00:00Z',
     customer: {
       id: '3',
       name: 'Carlos Fernández',
@@ -215,8 +215,8 @@ export const demoIncidents: Incident[] = [
     status: 'open',
     priority: 'high',
     description: 'El cliente reporta que no ha recibido el pedido en la fecha estimada',
-    createdAt: '2024-01-16T09:00:00Z',
-    updatedAt: '2024-01-16T09:00:00Z',
+    createdAt: '2025-01-16T09:00:00Z',
+    updatedAt: '2025-01-16T09:00:00Z',
     createdBy: '2'
   },
   {
@@ -226,8 +226,8 @@ export const demoIncidents: Incident[] = [
     status: 'resolved',
     priority: 'medium',
     description: 'Producto llegó con el empaque dañado, pero el contenido está intacto',
-    createdAt: '2024-01-15T11:30:00Z',
-    updatedAt: '2024-01-15T15:00:00Z',
+    createdAt: '2025-01-15T11:30:00Z',
+    updatedAt: '2025-01-15T15:00:00Z',
     createdBy: '1',
     assignedTo: '2',
     resolution: 'Se ofreció descuento del 10% al cliente. Cliente satisfecho.'
@@ -239,8 +239,8 @@ export const demoIncidents: Incident[] = [
     status: 'in_progress',
     priority: 'urgent',
     description: 'Falta uno de los productos del combo (aceite de cocina)',
-    createdAt: '2024-01-16T13:00:00Z',
-    updatedAt: '2024-01-16T14:30:00Z',
+    createdAt: '2025-01-16T13:00:00Z',
+    updatedAt: '2025-01-16T14:30:00Z',
     createdBy: '2',
     assignedTo: '1'
   }
@@ -254,7 +254,7 @@ export const demoNotifications: Notification[] = [
     title: 'Nueva incidencia asignada',
     message: 'Se te ha asignado la incidencia #3 - Producto faltante',
     read: false,
-    createdAt: '2024-01-16T13:05:00Z',
+    createdAt: '2025-01-16T13:05:00Z',
     relatedId: '3'
   },
   {
@@ -262,9 +262,9 @@ export const demoNotifications: Notification[] = [
     userId: '1',
     type: 'order',
     title: 'Nuevo pedido recibido',
-    message: 'Pedido EP-2024-004 listo para procesar',
+    message: 'Pedido EP-2025-004 listo para procesar',
     read: false,
-    createdAt: '2024-01-16T12:00:00Z',
+    createdAt: '2025-01-16T12:00:00Z',
     relatedId: '4'
   },
   {
@@ -274,7 +274,7 @@ export const demoNotifications: Notification[] = [
     title: 'Stock bajo',
     message: 'El producto "Combo Premium Plus" tiene solo 15 unidades',
     read: true,
-    createdAt: '2024-01-16T08:00:00Z',
+    createdAt: '2025-01-16T08:00:00Z',
     relatedId: '3'
   }
 ];
