@@ -4,7 +4,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/telegram-app-almacen/',
+  base: '/ep-app-logistic/',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
