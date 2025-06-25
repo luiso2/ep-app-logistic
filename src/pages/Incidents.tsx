@@ -96,36 +96,37 @@ export const Incidents: React.FC = () => {
               onClick={() => navigate(`/incidents/${incident.id}`)}
             >
               <div className="incident-header">
-                <div className="incident-badges">
-                  <span className={`incident-category category-${incident.category}`}>
-                    {getCategoryLabel(incident.category)}
-                  </span>
-                  <span 
-                    className="incident-priority"
-                    style={{ backgroundColor: getPriorityColor(incident.priority) }}
-                  >
-                    {incident.priority.toUpperCase()}
-                  </span>
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                    <h3 style={{ fontSize: '14px', fontWeight: '600', margin: 0 }}>
+                      Pedido: {order?.orderCode || 'N/A'}
+                    </h3>
+                    <div className="incident-badges">
+                      <span className={`incident-category category-${incident.category}`}>
+                        {getCategoryLabel(incident.category).substring(0, 3)}
+                      </span>
+                      <span 
+                        className="incident-priority"
+                        style={{ backgroundColor: getPriorityColor(incident.priority) }}
+                      >
+                        {incident.priority === 'urgent' ? 'URG' : incident.priority === 'high' ? 'ALT' : incident.priority === 'medium' ? 'MED' : 'BAJ'}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="incident-description" style={{ margin: '4px 0' }}>
+                    {incident.description}
+                  </p>
+                  <div className="incident-footer" style={{ marginTop: '8px' }}>
+                    <span className={`incident-status status-${incident.status}`}>
+                      {getStatusLabel(incident.status)}
+                    </span>
+                    <span className="incident-time">
+                      <Clock size={12} />
+                      {formatRelativeTime(incident.createdAt)}
+                    </span>
+                  </div>
                 </div>
-                <ChevronRight size={20} className="incident-chevron" />
-              </div>
-
-              <h3 className="incident-order">
-                Pedido: {order?.orderCode || 'N/A'}
-              </h3>
-              
-              <p className="incident-description">
-                {incident.description}
-              </p>
-
-              <div className="incident-footer">
-                <span className={`incident-status status-${incident.status}`}>
-                  {getStatusLabel(incident.status)}
-                </span>
-                <span className="incident-time">
-                  <Clock size={14} />
-                  {formatRelativeTime(incident.createdAt)}
-                </span>
+                <ChevronRight size={20} className="incident-chevron" style={{ alignSelf: 'center' }} />
               </div>
             </div>
           );

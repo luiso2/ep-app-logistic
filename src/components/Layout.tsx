@@ -7,20 +7,24 @@ import { getTelegramTheme } from '../utils/telegram';
 export const Layout: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { unreadCount } = useStore();
-  const theme = getTelegramTheme();
+  const { unreadCount, theme: appTheme } = useStore();
+  const telegramTheme = getTelegramTheme();
 
   useEffect(() => {
-    if (theme) {
-      document.documentElement.style.setProperty('--tg-theme-bg-color', theme.bgColor);
-      document.documentElement.style.setProperty('--tg-theme-text-color', theme.textColor);
-      document.documentElement.style.setProperty('--tg-theme-hint-color', theme.hintColor);
-      document.documentElement.style.setProperty('--tg-theme-link-color', theme.linkColor);
-      document.documentElement.style.setProperty('--tg-theme-button-color', theme.buttonColor);
-      document.documentElement.style.setProperty('--tg-theme-button-text-color', theme.buttonTextColor);
-      document.documentElement.style.setProperty('--tg-theme-secondary-bg-color', theme.secondaryBgColor);
+    // Apply theme based on app state
+    document.documentElement.setAttribute('data-theme', appTheme);
+    
+    // Override with Telegram theme if available
+    if (telegramTheme) {
+      document.documentElement.style.setProperty('--tg-theme-bg-color', telegramTheme.bgColor);
+      document.documentElement.style.setProperty('--tg-theme-text-color', telegramTheme.textColor);
+      document.documentElement.style.setProperty('--tg-theme-hint-color', telegramTheme.hintColor);
+      document.documentElement.style.setProperty('--tg-theme-link-color', telegramTheme.linkColor);
+      document.documentElement.style.setProperty('--tg-theme-button-color', telegramTheme.buttonColor);
+      document.documentElement.style.setProperty('--tg-theme-button-text-color', telegramTheme.buttonTextColor);
+      document.documentElement.style.setProperty('--tg-theme-secondary-bg-color', telegramTheme.secondaryBgColor);
     }
-  }, [theme]);
+  }, [telegramTheme, appTheme]);
 
   const navItems = [
     { path: '/', icon: Home, label: 'Inicio' },

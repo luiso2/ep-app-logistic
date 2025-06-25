@@ -40,7 +40,7 @@ export const demoOrders: Order[] = [
         productName: 'Combo Familiar Básico',
         quantity: 1,
         price: 150,
-        sku: 'CFB-001'
+        sku: 'HB-CFB-001'
       },
       {
         id: '2',
@@ -48,7 +48,7 @@ export const demoOrders: Order[] = [
         productName: 'Pack de Aseo Personal',
         quantity: 2,
         price: 45,
-        sku: 'PAP-002'
+        sku: 'HB-PAP-002'
       }
     ],
     shippingAddress: {
@@ -93,7 +93,7 @@ export const demoOrders: Order[] = [
         productName: 'Combo Premium Plus',
         quantity: 1,
         price: 280,
-        sku: 'CPP-003'
+        sku: 'CM-CPP-003'
       }
     ],
     shippingAddress: {
@@ -125,7 +125,7 @@ export const demoOrders: Order[] = [
         productName: 'Pack Medicinas Esenciales',
         quantity: 1,
         price: 95,
-        sku: 'PME-004'
+        sku: 'HB-PME-004'
       }
     ],
     shippingAddress: {
@@ -141,7 +141,7 @@ export const demoOrders: Order[] = [
 export const demoProducts: Product[] = [
   {
     id: '1',
-    sku: 'CFB-001',
+    sku: 'HB-CFB-001',
     name: 'Combo Familiar Básico',
     description: 'Incluye arroz, frijoles, aceite, azúcar y productos básicos para una familia',
     category: 'Alimentos',
@@ -152,7 +152,7 @@ export const demoProducts: Product[] = [
   },
   {
     id: '2',
-    sku: 'PAP-002',
+    sku: 'HB-PAP-002',
     name: 'Pack de Aseo Personal',
     description: 'Jabón, champú, pasta dental, papel higiénico y artículos de higiene',
     category: 'Aseo',
@@ -163,7 +163,7 @@ export const demoProducts: Product[] = [
   },
   {
     id: '3',
-    sku: 'CPP-003',
+    sku: 'CM-CPP-003',
     name: 'Combo Premium Plus',
     description: 'Combo completo con carnes, productos gourmet y artículos especiales',
     category: 'Alimentos',
@@ -174,7 +174,7 @@ export const demoProducts: Product[] = [
   },
   {
     id: '4',
-    sku: 'PME-004',
+    sku: 'HB-PME-004',
     name: 'Pack Medicinas Esenciales',
     description: 'Medicamentos básicos, vitaminas y suplementos',
     category: 'Salud',
@@ -185,7 +185,7 @@ export const demoProducts: Product[] = [
   },
   {
     id: '5',
-    sku: 'PBB-005',
+    sku: 'CM-PBB-005',
     name: 'Pack Bebé Completo',
     description: 'Pañales, leche en polvo, y productos para bebé',
     category: 'Bebé',
@@ -196,7 +196,7 @@ export const demoProducts: Product[] = [
   },
   {
     id: '6',
-    sku: 'CEE-006',
+    sku: 'HB-CEE-006',
     name: 'Combo Escolar Esencial',
     description: 'Útiles escolares, mochilas y materiales educativos',
     category: 'Escolar',

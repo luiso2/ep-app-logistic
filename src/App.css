@@ -1,17 +1,17 @@
 :root {
-  --tg-theme-bg-color: #ffffff;
-  --tg-theme-text-color: #000000;
-  --tg-theme-hint-color: #999999;
-  --tg-theme-link-color: #2481cc;
-  --tg-theme-button-color: #2481cc;
-  --tg-theme-button-text-color: #ffffff;
-  --tg-theme-secondary-bg-color: #f1f1f1;
-  --tg-theme-header-bg-color: #ffffff;
-  --tg-theme-accent-text-color: #2481cc;
-  --tg-theme-section-bg-color: #ffffff;
-  --tg-theme-section-header-text-color: #000000;
-  --tg-theme-subtitle-text-color: #999999;
-  --tg-theme-destructive-text-color: #ff3b30;
+  --tg-theme-bg-color: #1C2026;
+  --tg-theme-text-color: #FFFFFF;
+  --tg-theme-hint-color: #8B8E94;
+  --tg-theme-link-color: #64B5F6;
+  --tg-theme-button-color: #2481CC;
+  --tg-theme-button-text-color: #FFFFFF;
+  --tg-theme-secondary-bg-color: #212329;
+  --tg-theme-header-bg-color: #1C2026;
+  --tg-theme-accent-text-color: #64B5F6;
+  --tg-theme-section-bg-color: #212329;
+  --tg-theme-section-header-text-color: #FFFFFF;
+  --tg-theme-subtitle-text-color: #8B8E94;
+  --tg-theme-destructive-text-color: #FF5252;
   
   --border-radius: 12px;
   --spacing-xs: 4px;
@@ -21,19 +21,19 @@
   --spacing-xl: 32px;
 }
 
-[data-theme="dark"] {
-  --tg-theme-bg-color: #1c1c1e;
-  --tg-theme-text-color: #ffffff;
-  --tg-theme-hint-color: #8e8e93;
-  --tg-theme-link-color: #64a9e9;
-  --tg-theme-button-color: #2481cc;
-  --tg-theme-button-text-color: #ffffff;
-  --tg-theme-secondary-bg-color: #2c2c2e;
-  --tg-theme-header-bg-color: #1c1c1e;
-  --tg-theme-section-bg-color: #2c2c2e;
-  --tg-theme-section-header-text-color: #ffffff;
-  --tg-theme-subtitle-text-color: #8e8e93;
-  --tg-theme-destructive-text-color: #ff453a;
+[data-theme="light"] {
+  --tg-theme-bg-color: #FFFFFF;
+  --tg-theme-text-color: #000000;
+  --tg-theme-hint-color: #999999;
+  --tg-theme-link-color: #2481CC;
+  --tg-theme-button-color: #2481CC;
+  --tg-theme-button-text-color: #FFFFFF;
+  --tg-theme-secondary-bg-color: #F5F5F5;
+  --tg-theme-header-bg-color: #FFFFFF;
+  --tg-theme-section-bg-color: #F5F5F5;
+  --tg-theme-section-header-text-color: #000000;
+  --tg-theme-subtitle-text-color: #999999;
+  --tg-theme-destructive-text-color: #FF3B30;
 }
 
 * {

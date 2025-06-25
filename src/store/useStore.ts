@@ -41,7 +41,7 @@ export const useStore = create<Store>((set, get) => ({
   products: demoProducts,
   incidents: demoIncidents,
   notifications: demoNotifications,
-  theme: 'light',
+  theme: 'dark',
   
   // User actions
   setCurrentUser: (user) => set({ currentUser: user }),
