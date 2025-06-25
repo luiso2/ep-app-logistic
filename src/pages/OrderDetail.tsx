@@ -10,7 +10,7 @@ export const OrderDetail: React.FC = () => {
   const navigate = useNavigate();
   const { getOrder } = useStore();
   
-  const order = id ? getOrder(id) : undefined;
+  const order = id ? getOrder(parseInt(id, 10)) : undefined;
 
   useEffect(() => {
     showTelegramBackButton(() => navigate(-1));

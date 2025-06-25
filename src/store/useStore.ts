@@ -9,7 +9,7 @@ interface Store {
   
   // Orders
   orders: Order[];
-  getOrder: (id: string) => Order | undefined;
+  getOrder: (id: number) => Order | undefined;
   getOrderByCode: (code: string) => Order | undefined;
   
   // Products

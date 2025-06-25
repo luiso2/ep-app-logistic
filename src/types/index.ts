@@ -9,7 +9,7 @@ export interface User {
 }
 
 export interface Order {
-  id: string;
+  id: number;
   orderCode: string;
   status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
   createdAt: string;
@@ -48,7 +48,7 @@ export interface OrderItem {
 
 export interface Incident {
   id: string;
-  orderId: string;
+  orderId: number;
   category: 'damaged' | 'missing' | 'delayed' | 'incorrect' | 'other';
   status: 'open' | 'in_progress' | 'resolved' | 'closed';
   priority: 'low' | 'medium' | 'high' | 'urgent';
@@ -58,6 +58,16 @@ export interface Incident {
   createdBy: string;
   assignedTo?: string;
   resolution?: string;
+  comments?: Comment[];
+}
+
+export interface Comment {
+  id: string;
+  incidentId: string;
+  userId: string;
+  userName: string;
+  text: string;
+  createdAt: string;
 }
 
 export interface Product {
@@ -80,5 +90,5 @@ export interface Notification {
   message: string;
   read: boolean;
   createdAt: string;
-  relatedId?: string;
+  relatedId?: string | number;
 }

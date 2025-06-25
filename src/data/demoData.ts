@@ -21,7 +21,7 @@ export const demoUsers: User[] = [
 
 export const demoOrders: Order[] = [
   {
-    id: '1',
+    id: 1,
     orderCode: 'EP-2024-001',
     status: 'processing',
     createdAt: '2024-01-15T10:30:00Z',
@@ -62,7 +62,7 @@ export const demoOrders: Order[] = [
     incidents: [
       {
         id: '1',
-        orderId: '1',
+        orderId: 1,
         category: 'delayed',
         status: 'open',
         priority: 'high',
@@ -74,7 +74,7 @@ export const demoOrders: Order[] = [
     ]
   },
   {
-    id: '2',
+    id: 2,
     orderCode: 'EP-2024-002',
     status: 'shipped',
     createdAt: '2024-01-14T08:00:00Z',
@@ -107,7 +107,7 @@ export const demoOrders: Order[] = [
     incidents: []
   },
   {
-    id: '3',
+    id: 3,
     orderCode: 'EP-2024-003',
     status: 'delivered',
     createdAt: '2024-01-10T14:30:00Z',
@@ -210,7 +210,7 @@ export const demoProducts: Product[] = [
 export const demoIncidents: Incident[] = [
   {
     id: '1',
-    orderId: '1',
+    orderId: 1,
     category: 'delayed',
     status: 'open',
     priority: 'high',
@@ -221,7 +221,7 @@ export const demoIncidents: Incident[] = [
   },
   {
     id: '2',
-    orderId: '4',
+    orderId: 4,
     category: 'damaged',
     status: 'resolved',
     priority: 'medium',
@@ -234,7 +234,7 @@ export const demoIncidents: Incident[] = [
   },
   {
     id: '3',
-    orderId: '5',
+    orderId: 5,
     category: 'missing',
     status: 'in_progress',
     priority: 'urgent',
