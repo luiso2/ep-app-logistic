@@ -2,12 +2,22 @@ include:
   - "_*_.html"
   - "_*_.js"
   - "_*_.css"
+  - ".nojekyll"
+  - ".htaccess"
 
-plugins:
-  - jekyll-include-cache
+plugins: []
+
+kramdown:
+  input: GFM
 
 defaults:
   - scope:
       path: "assets"
     values:
-      sitemap: false 
+      sitemap: false
+
+# Ensure proper MIME types
+mime_types:
+  js: text/javascript
+  mjs: text/javascript
+  css: text/css 
