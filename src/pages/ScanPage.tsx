@@ -130,7 +130,7 @@ export const ScanPage: React.FC = () => {
             <Package size={20} />
             <div>
               <h4>Códigos de pedido</h4>
-              <p>Formato: EP-2024-XXX</p>
+              <p>Formato: EP-2025-XXX</p>
             </div>
           </div>
           <div className="scan-info-item">

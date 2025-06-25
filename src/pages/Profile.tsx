@@ -123,7 +123,7 @@ export const Profile: React.FC = () => {
 
       <div className="app-info">
         <p>Esencial Pack - Sistema de Gestión v1.0.0</p>
-        <p className="company-info">© 2024 Esencial Pack - 20+ años de experiencia</p>
+        <p className="company-info">© 2025 Esencial Pack</p>
       </div>
     </div>
   );

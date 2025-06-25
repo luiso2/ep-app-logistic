@@ -95,4 +95,4 @@ URL de producción: https://luiso2.github.io/ep-app-logistic/
 
 ## Licencia
 
-© 2024 Esencial Pack - Todos los derechos reservados
+© 2025 Esencial Pack - Todos los derechos reservados

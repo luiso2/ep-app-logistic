@@ -36,6 +36,14 @@ export const Incidents: React.FC = () => {
     { value: 'closed', label: 'Cerrado' }
   ];
 
+  const priorityOptions = [
+    { value: 'all', label: 'Todas' },
+    { value: 'urgent', label: 'Urgente' },
+    { value: 'high', label: 'Alta' },
+    { value: 'medium', label: 'Media' },
+    { value: 'low', label: 'Baja' }
+  ];
+
   const stats = {
     total: incidents.length,
     open: incidents.filter(i => i.status === 'open').length,
@@ -92,78 +100,59 @@ export const Incidents: React.FC = () => {
       </header>
 
       <div className="filters-section">
-        <div className="filter-group">
-          <label className="filter-label">
-            <Filter size={16} />
-            Categoría
-          </label>
-          <div className="filter-chips">
-            {categoryOptions.map(option => (
-              <button
-                key={option.value}
-                onClick={() => setCategoryFilter(option.value)}
-                className={`filter-chip ${categoryFilter === option.value ? 'active' : ''}`}
-              >
-                {option.label}
-              </button>
-            ))}
+        <div className="filters-grid">
+          <div className="filter-group">
+            <label className="filter-label">
+              <Filter size={16} />
+              Categoría
+            </label>
+            <select 
+              value={categoryFilter} 
+              onChange={(e) => setCategoryFilter(e.target.value)}
+              className="filter-select"
+            >
+              {categoryOptions.map(option => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
           </div>
-        </div>
 
-        <div className="filter-group">
-          <label className="filter-label">
-            <Filter size={16} />
-            Estado
-          </label>
-          <div className="filter-chips">
-            {statusOptions.map(option => (
-              <button
-                key={option.value}
-                onClick={() => setStatusFilter(option.value)}
-                className={`filter-chip ${statusFilter === option.value ? 'active' : ''}`}
-              >
-                {option.label}
-              </button>
-            ))}
+          <div className="filter-group">
+            <label className="filter-label">
+              <Filter size={16} />
+              Estado
+            </label>
+            <select 
+              value={statusFilter} 
+              onChange={(e) => setStatusFilter(e.target.value)}
+              className="filter-select"
+            >
+              {statusOptions.map(option => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
           </div>
-        </div>
 
-        <div className="filter-group">
-          <label className="filter-label">
-            <Filter size={16} />
-            Prioridad
-          </label>
-          <div className="filter-chips">
-            <button
-              onClick={() => setPriorityFilter('all')}
-              className={`filter-chip ${priorityFilter === 'all' ? 'active' : ''}`}
+          <div className="filter-group">
+            <label className="filter-label">
+              <Filter size={16} />
+              Prioridad
+            </label>
+            <select 
+              value={priorityFilter} 
+              onChange={(e) => setPriorityFilter(e.target.value)}
+              className="filter-select"
             >
-              Todas
-            </button>
-            <button
-              onClick={() => setPriorityFilter('urgent')}
-              className={`filter-chip priority-urgent ${priorityFilter === 'urgent' ? 'active' : ''}`}
-            >
-              Urgente
-            </button>
-            <button
-              onClick={() => setPriorityFilter('high')}
-              className={`filter-chip priority-high ${priorityFilter === 'high' ? 'active' : ''}`}
-            >
-              Alta
-            </button>
-            <button
-              onClick={() => setPriorityFilter('medium')}
-              className={`filter-chip priority-medium ${priorityFilter === 'medium' ? 'active' : ''}`}
-            >
-              Media
-            </button>
-            <button
-              onClick={() => setPriorityFilter('low')}
-              className={`filter-chip priority-low ${priorityFilter === 'low' ? 'active' : ''}`}
-            >
-              Baja
-            </button>
+              {priorityOptions.map(option => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
       </div>
