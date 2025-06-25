@@ -1,0 +1,8 @@
+# GitHub Pages Configuration
+# This file ensures GitHub Pages serves from the correct directory
+
+# Disable Jekyll processing
+plugins: []
+
+# Set the source directory (not needed as we use GitHub Actions)
+# source: dist

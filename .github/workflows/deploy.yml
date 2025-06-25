@@ -25,20 +25,38 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
         
     - name: Install dependencies
       run: npm ci
       
     - name: Build
-      run: npm run build
-      
-    - name: Add MIME type headers
       run: |
-        echo "*.js text/javascript" > dist/.htaccess
-        echo "*.mjs text/javascript" >> dist/.htaccess
-        echo "*.css text/css" >> dist/.htaccess
+        echo "Building the application..."
+        npm run build
+        echo "Build completed!"
+        
+    - name: List dist contents
+      run: |
+        echo "Contents of dist folder:"
+        ls -la dist/
+        echo "Contents of dist/assets:"
+        ls -la dist/assets/ || echo "No assets folder"
+        
+    - name: Verify build output
+      run: |
+        if [ ! -f "dist/index.html" ]; then
+          echo "Error: dist/index.html not found!"
+          exit 1
+        fi
+        echo "Checking if index.html contains .tsx references..."
+        if grep -q "\.tsx" dist/index.html; then
+          echo "Error: dist/index.html contains .tsx references!"
+          cat dist/index.html
+          exit 1
+        fi
+        echo "Build output verified!"
       
     - name: Setup Pages
       uses: actions/configure-pages@v5
